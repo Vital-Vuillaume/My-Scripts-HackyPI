@@ -76,7 +76,7 @@ try:
     keyboard.send(Keycode.CONTROL, Keycode.ALT, Keycode.T)
     time.sleep(0.6)
     
-    keyboard_layout.write("system suspend")
+    keyboard_layout.write("systemctl suspend")
     keyboard.send(Keycode.ENTER)
     
 except Exception as ex:
