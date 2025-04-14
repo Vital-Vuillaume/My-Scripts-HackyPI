@@ -100,6 +100,9 @@ try:
     keyboard.send(Keycode.TAB)
     keyboard_layout.write(f"{path}")
     keyboard.send(Keycode.ENTER)
+    time.sleep(0.6)
+    
+    keyboard.send(Keycode.ALT, Keycode.F4)
     
 except Exception as ex:
     keyboard.release_all()
