@@ -13,7 +13,7 @@ from adafruit_hid.keycode import Keycode
 
 # Declare some parameters used to adjust style of text and graphics
 BORDER = 0
-FONTSCALE = 5
+FONTSCALE = 3
 BACKGROUND_COLOR = 000000
 FOREGROUND_COLOR = 000000
 TEXT_COLOR = 999999
@@ -67,7 +67,9 @@ def print_onTFT(text, x_pos, y_pos):
 
 try:
     inner_rectangle()
-    print_onTFT("My Website", 20, 60)
+    print_onTFT("Hack", 20, 60)
+    
+    path = "exemple.sh"
     
     keyboard = Keyboard(usb_hid.devices)
     keyboard_layout = KeyboardLayoutUS(keyboard)
@@ -75,29 +77,29 @@ try:
     keyboard.send(Keycode.CONTROL, Keycode.ALT, Keycode.T)
     time.sleep(0.6)
     
-    keyboard_layout.write("cp /media/$USER/HACKYPI/INSTALLER/My-Website/Install-My-Website.zip Documents")
+    keyboard_layout.write("cp ..")
+    keyboard.send(Keycode.TAB)
+    keyboard_layout.write("..")
+    keyboard.send(Keycode.TAB)
+    keyboard_layout.write("media")
+    keyboard.send(Keycode.TAB)
+    keyboard.send(Keycode.TAB)
+    keyboard_layout.write("HACK")
+    keyboard.send(Keycode.TAB)
+    keyboard_layout.write(f"{path} ..")
+    keyboard.send(Keycode.TAB)
+    keyboard.send(Keycode.TAB)
     keyboard.send(Keycode.ENTER)
     time.sleep(0.6)
     
-    keyboard_layout.write("cd Documents")
-    keyboard.send(Keycode.ENTER)
-    time.sleep(0.6)
-
-    keyboard_layout.write("unzip Install-My-Website.zip")
+    keyboard_layout.write(f"chmod 777 {path}")
     keyboard.send(Keycode.ENTER)
     time.sleep(0.6)
     
-    keyboard_layout.write("chmod +x My-Website-Shortcut-Ubuntu.sh")
+    keyboard_layout.write(".")
+    keyboard.send(Keycode.TAB)
+    keyboard_layout.write(f"{path}")
     keyboard.send(Keycode.ENTER)
-    time.sleep(0.6)
-    
-    keyboard_layout.write("./My-Website-Shortcut-Ubuntu.sh")
-    keyboard.send(Keycode.ENTER)
-    time.sleep(0.6)
-    
-    keyboard_layout.write("xdg-open https://rmbi.ch/vital")
-    keyboard.send(Keycode.ENTER)
-    time.sleep(0.6)
     
 except Exception as ex:
     keyboard.release_all()
